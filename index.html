@@ -37,18 +37,39 @@
     </section>
 
     <section>
-        <div class="grid">
-            <div id="id-weight" class="border border-2 h-full bg-blue-100">
-                Weight
+        <div class="mx-4 my-4">
+            <h2>Weight</h2>
+            <div class="border border-2 h-full bg-blue-100">
+                <div>
+                    <label class="block">Check:</label>
+                    <input class="block"/>
+                </div>
+                <div>
+                    <label class="block">Check:</label>
+                    <input class="block"/>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
-        const className = "button-tag";
-        document.querySelectorAll(`.${className}`).forEach(element => element.addEventListener("click", (event)=>{
+        const BUTTON_TAG = "button-tag";
+        const BUTTON_WEIGHT_ID = "btn-weight";
+        const BUTTON_DISTANCE_ID = "btn-distance";
+        const BUTTON_TEMPERATURE_ID = "btn-temperature";
+
+        document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
             const id = event.target.id;
-            console.log(id);
+
+            if (id == BUTTON_WEIGHT_ID) {
+                console.log(id);
+            }
+            else if (id == BUTTON_DISTANCE_ID) {
+                console.log(id);
+            }
+            else if (id == BUTTON_TEMPERATURE_ID) {
+                console.log(id);
+            }
         }));    
     </script>
 </body>
