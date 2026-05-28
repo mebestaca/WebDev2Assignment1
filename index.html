@@ -98,7 +98,7 @@
         const outputConverted = document.getElementById(OUTPUT_ID);
 
         const lbToKg = (lb) => (lb / 2.20462);
-        const kgToLb = (kg) => (kg * 0.453592);
+        const kgToLb = (kg) => (kg * 2.20462);
 
         const milesToKm = (m) => (m * 1.60934);
         const kmToMiles = (km) => (km * 0.621371);
@@ -135,6 +135,7 @@
             const id = event.target.id;
 
             if (id == BUTTON_CONVERT_ID) {
+                console.log(operation);
                 event.preventDefault();
                 outputConverted.value = operate(operation, inputForConversion.value).toFixed(2);
                 
