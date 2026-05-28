@@ -51,11 +51,11 @@
             <div class="border border-2 h-full bg-blue-100">
                 <div>
                     <label id="lbl-input" for="input" class="block">Placeholder:</label>
-                    <input id="id-input" type="number" class="block"/>
+                    <input id="id-input" type="text" class="block"/>
                 </div>
                 <div>
                     <label id="lbl-output" for="output" class="block">Placeholder:</label>
-                    <input id="id-output" type="number" class="block"/>
+                    <input id="id-output" type="text" class="block"/>
                 </div>
                 <div class="flex">
                     <button id="btn-switch" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag" type="button">
@@ -107,7 +107,7 @@
         const fToC = (f) => (f - 32) * 5.0 / 9.0;
 
         function operate(operation, v) {
-            return operation(v);
+            return v.map(operation);
         }
 
         const switchLabel = operationMode => {
@@ -135,10 +135,8 @@
             const id = event.target.id;
 
             if (id == BUTTON_CONVERT_ID) {
-                console.log(operation);
-                event.preventDefault();
-                outputConverted.value = operate(operation, inputForConversion.value).toFixed(2);
-                
+                event.preventDefault();            
+                outputConverted.value = operate(operation, inputForConversion.value.split(",").map(v=> Number(v.trim()))).map(o=>o.toFixed(2));
             }
             else {
                 if (id == BUTTON_WEIGHT_ID) 
