@@ -38,7 +38,7 @@
     </section>
 
     <section>
-        <div class="flex flex-col items-end gap-2">
+        <div class="flex flex-col gap-2">
             <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Weight</a>
             <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Distance</a>
             <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Temperature</a>
@@ -47,26 +47,55 @@
 
     <section>
         <div class="mx-4 my-4">
-            <h2>Weight</h2>
+            <h2 class="mx-2 mx-y text-4xl">Weight</h2>
             <div class="border border-2 h-full bg-blue-100">
                 <div>
-                    <label for="input" class="block">Check:</label>
+                    <label for="input" class="block">Placeholder:</label>
                     <input id="input" type="number" class="block"/>
                 </div>
                 <div>
-                    <label class="block">Check:</label>
-                    <input class="block"/>
+                    <label for="output" class="block">Placeholder:</label>
+                    <input id="output" type="number" class="block"/>
+                </div>
+                <div class="flex">
+                    <button id="btn-switch" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag">
+                        Swap                    
+                    </button>
+                    <button id="btn-convert" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag">
+                        Convert
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
+        const OPERATION_MODES = Object.freeze({
+            WEIGHT: "WEIGHT",
+            DISTANCE: "DISTANCE",
+            TEMPERATURE: "TEMPERATURE"
+        });
+
         const BUTTON_TAG = "button-tag";
         const BUTTON_WEIGHT_ID = "btn-weight";
         const BUTTON_DISTANCE_ID = "btn-distance";
         const BUTTON_TEMPERATURE_ID = "btn-temperature";
+        const BUTTON_SWITCH_ID = "btn-switch";
+        const BUTTON_CONVERT_ID = "btn-convert";
         const INPUT_ID = "id-input";
+        const OUTPUT_ID = "id-output";
+        let operationMode = OPERATION_MODES.WEIGHT;
+
+        const kgToLb = (kg) => (kg * 0.453592);
+        const lbToKg = (lb) => (lb / 2.20462);
+        const kmToMiles = (km) => (km * 0.621371);
+        const milesToKm = (m) => (m * 1.60934);
+        const cToF = (c) => (c * 9.0 / 5.0) + 32;
+        const fToC = (f) => (f - 32) * 5.0 / 9.0;
+
+        function operate(operation, v) {
+            return operation(v);
+        }
 
         document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
             const id = event.target.id;
@@ -76,6 +105,12 @@
             else if (id == BUTTON_DISTANCE_ID) {
             }
             else if (id == BUTTON_TEMPERATURE_ID) {
+            }
+            else if (id == BUTTON_SWITCH_ID) {
+                
+            }
+            else if (id == BUTTON_CONVERT_ID) {
+               
             }
         }));    
     </script>
