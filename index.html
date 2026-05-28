@@ -34,6 +34,15 @@
                 <span class="block w-5 h-0.5 bg-gray-600"></span>
             </button>
         </nav>
+        
+    </section>
+
+    <section>
+        <div class="flex flex-col items-end gap-2">
+            <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Weight</a>
+            <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Distance</a>
+            <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Temperature</a>
+        </div>
     </section>
 
     <section>
@@ -41,8 +50,8 @@
             <h2>Weight</h2>
             <div class="border border-2 h-full bg-blue-100">
                 <div>
-                    <label class="block">Check:</label>
-                    <input class="block"/>
+                    <label for="input" class="block">Check:</label>
+                    <input id="input" type="number" class="block"/>
                 </div>
                 <div>
                     <label class="block">Check:</label>
@@ -57,18 +66,16 @@
         const BUTTON_WEIGHT_ID = "btn-weight";
         const BUTTON_DISTANCE_ID = "btn-distance";
         const BUTTON_TEMPERATURE_ID = "btn-temperature";
+        const INPUT_ID = "id-input";
 
         document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
             const id = event.target.id;
 
             if (id == BUTTON_WEIGHT_ID) {
-                console.log(id);
             }
             else if (id == BUTTON_DISTANCE_ID) {
-                console.log(id);
             }
             else if (id == BUTTON_TEMPERATURE_ID) {
-                console.log(id);
             }
         }));    
     </script>
