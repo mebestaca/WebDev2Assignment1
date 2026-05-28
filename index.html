@@ -70,12 +70,18 @@
     </section>
 
     <script>
+        // =======================================================
+        // Constants
+        // =======================================================
+
+        // Operation Modes Enum
         const OPERATION_MODES = Object.freeze({
             WEIGHT: "WEIGHT",
             DISTANCE: "DISTANCE",
             TEMPERATURE: "TEMPERATURE"
         });
 
+        // DOM ids
         const BUTTON_TAG = "button-tag";
         const BUTTON_WEIGHT_ID = "btn-weight";
         const BUTTON_DISTANCE_ID = "btn-distance";
@@ -88,28 +94,48 @@
         const INPUT_LABEL_ID = "lbl-input";
         const OUTPUT_LABEL_ID = "lbl-output";
 
-        let operationMode = OPERATION_MODES.WEIGHT;
-        let operation = () => {};
-        let swap = true;
+        // DOM elements
         const operationLabel = document.getElementById(OPERATION_ID);
         const inputLabel = document.getElementById(INPUT_LABEL_ID);
         const outputLabel = document.getElementById(OUTPUT_LABEL_ID);
         const inputForConversion = document.getElementById(INPUT_ID);
         const outputConverted = document.getElementById(OUTPUT_ID);
 
+        // =======================================================
+        // End of constants
+        // =======================================================
+
+        // variables for the operation
+        let operationMode = OPERATION_MODES.WEIGHT;
+        let operation = () => {};
+        let swap = true;
+        
+        // =======================================================
+        // conversion formulas
+        // =======================================================
+        
+        // Pounds to kilograms 
         const lbToKg = (lb) => (lb / 2.20462);
         const kgToLb = (kg) => (kg * 2.20462);
 
+        // Miles to kilometers
         const milesToKm = (m) => (m * 1.60934);
         const kmToMiles = (km) => (km * 0.621371);
 
+        // Celsius to Fahrenheit
         const cToF = (c) => (c * 9.0 / 5.0) + 32;
         const fToC = (f) => (f - 32) * 5.0 / 9.0;
 
+        // =======================================================
+        // Functions
+        // =======================================================
+
+        // Higher order function
         function operate(operation, v) {
             return v.map(operation);
         }
 
+        // UI related operations
         const switchLabel = operationMode => {
             if (operationMode == OPERATION_MODES.WEIGHT) {
                 operationLabel.textContent = "Weight";
@@ -131,14 +157,19 @@
             }
         };
 
+        // Implementation of the functions
         document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
+            // store the id of the button clicked
             const id = event.target.id;
 
             if (id == BUTTON_CONVERT_ID) {
                 event.preventDefault();            
+
+                // operate accepts operation and value array
                 outputConverted.value = operate(operation, inputForConversion.value.split(",").map(v=> Number(v.trim()))).map(o=>o.toFixed(2));
             }
             else {
+                // update operation mode
                 if (id == BUTTON_WEIGHT_ID) 
                     operationMode = OPERATION_MODES.WEIGHT;
                 else if (id == BUTTON_DISTANCE_ID) 
@@ -147,11 +178,14 @@
                     operationMode = OPERATION_MODES.TEMPERATURE;
                 else if (id == BUTTON_SWITCH_ID) 
                     swap = !swap;
+
+                // update the ui
                 switchLabel(operationMode);
             }
             
         }));    
 
+        // to guarantee that variables are initialized
         (function() {
             switchLabel(operationMode);
         })();
