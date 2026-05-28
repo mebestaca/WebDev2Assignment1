@@ -46,27 +46,27 @@
     </section>
 
     <section>
-        <div class="mx-4 my-4">
-            <h2 class="mx-2 mx-y text-4xl">Weight</h2>
+        <h2 id="operation-id" class="mx-2 mx-2 text-4xl">Placeholder</h2>
+        <form class="mx-4 my-4">
             <div class="border border-2 h-full bg-blue-100">
                 <div>
-                    <label for="input" class="block">Placeholder:</label>
-                    <input id="input" type="number" class="block"/>
+                    <label id="lbl-input" for="input" class="block">Placeholder:</label>
+                    <input id="id-input" type="number" class="block"/>
                 </div>
                 <div>
-                    <label for="output" class="block">Placeholder:</label>
-                    <input id="output" type="number" class="block"/>
+                    <label id="lbl-output" for="output" class="block">Placeholder:</label>
+                    <input id="id-output" type="number" class="block"/>
                 </div>
                 <div class="flex">
-                    <button id="btn-switch" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag">
+                    <button id="btn-switch" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag" type="button">
                         Swap                    
                     </button>
-                    <button id="btn-convert" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag">
+                    <button id="btn-convert" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag" type="submit">
                         Convert
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
     <script>
@@ -84,12 +84,25 @@
         const BUTTON_CONVERT_ID = "btn-convert";
         const INPUT_ID = "id-input";
         const OUTPUT_ID = "id-output";
-        let operationMode = OPERATION_MODES.WEIGHT;
+        const OPERATION_ID = "operation-id";
+        const INPUT_LABEL_ID = "lbl-input";
+        const OUTPUT_LABEL_ID = "lbl-output";
 
-        const kgToLb = (kg) => (kg * 0.453592);
+        let operationMode = OPERATION_MODES.WEIGHT;
+        let operation = () => {};
+        let swap = true;
+        const operationLabel = document.getElementById(OPERATION_ID);
+        const inputLabel = document.getElementById(INPUT_LABEL_ID);
+        const outputLabel = document.getElementById(OUTPUT_LABEL_ID);
+        const inputForConversion = document.getElementById(INPUT_ID);
+        const outputConverted = document.getElementById(OUTPUT_ID);
+
         const lbToKg = (lb) => (lb / 2.20462);
-        const kmToMiles = (km) => (km * 0.621371);
+        const kgToLb = (kg) => (kg * 0.453592);
+
         const milesToKm = (m) => (m * 1.60934);
+        const kmToMiles = (km) => (km * 0.621371);
+
         const cToF = (c) => (c * 9.0 / 5.0) + 32;
         const fToC = (f) => (f - 32) * 5.0 / 9.0;
 
@@ -97,22 +110,52 @@
             return operation(v);
         }
 
+        const switchLabel = operationMode => {
+            if (operationMode == OPERATION_MODES.WEIGHT) {
+                operationLabel.textContent = "Weight";
+                inputLabel.textContent = swap ? "Pounds" : "Kilograms";
+                outputLabel.textContent = swap ? "Kilograms" : "Pounds";
+                operation = swap ? lbToKg : kgToLb;
+            }
+            else if (operationMode == OPERATION_MODES.DISTANCE) {
+                operationLabel.textContent = "Distance";
+                inputLabel.textContent = swap ? "Miles" : "Kilometers";
+                outputLabel.textContent = swap ? "Kilometers" : "Miles";
+                operation = swap ? milesToKm : kmToMiles;
+            }
+            else if (operationMode == OPERATION_MODES.TEMPERATURE) {
+                operationLabel.textContent = "Temperature";
+                inputLabel.textContent = swap ? "Celsius" : "Fahrenheit";
+                outputLabel.textContent = swap ? "Fahrenheit" : "Celsius";
+                operation = swap ? cToF : fToC;
+            }
+        };
+
         document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
             const id = event.target.id;
 
-            if (id == BUTTON_WEIGHT_ID) {
-            }
-            else if (id == BUTTON_DISTANCE_ID) {
-            }
-            else if (id == BUTTON_TEMPERATURE_ID) {
-            }
-            else if (id == BUTTON_SWITCH_ID) {
+            if (id == BUTTON_CONVERT_ID) {
+                event.preventDefault();
+                outputConverted.value = operate(operation, inputForConversion.value).toFixed(2);
                 
             }
-            else if (id == BUTTON_CONVERT_ID) {
-               
+            else {
+                if (id == BUTTON_WEIGHT_ID) 
+                    operationMode = OPERATION_MODES.WEIGHT;
+                else if (id == BUTTON_DISTANCE_ID) 
+                    operationMode = OPERATION_MODES.DISTANCE;
+                else if (id == BUTTON_TEMPERATURE_ID) 
+                    operationMode = OPERATION_MODES.TEMPERATURE;
+                else if (id == BUTTON_SWITCH_ID) 
+                    swap = !swap;
+                switchLabel(operationMode);
             }
+            
         }));    
+
+        (function() {
+            switchLabel(operationMode);
+        })();
     </script>
 </body>
 </html>
