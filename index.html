@@ -146,16 +146,16 @@
         // =======================================================
         
         // Pounds to kilograms 
-        const lbToKg = (lb) => (lb / 2.20462);
-        const kgToLb = (kg) => (kg * 2.20462);
+        const lb2Kg = (lb) => (lb / 2.20462);
+        const kg2Lb = (kg) => (kg * 2.20462);
 
         // Miles to kilometers
-        const milesToKm = (m) => (m * 1.60934);
-        const kmToMiles = (km) => (km * 0.621371);
+        const miles2Km = (m) => (m * 1.60934);
+        const km2Miles = (km) => (km * 0.621371);
 
         // Celsius to Fahrenheit
-        const cToF = (c) => (c * 9.0 / 5.0) + 32;
-        const fToC = (f) => (f - 32) * 5.0 / 9.0;
+        const c2F = (c) => (c * 9.0 / 5.0) + 32;
+        const f2C = (f) => (f - 32) * 5.0 / 9.0;
 
         // =======================================================
         // Functions
@@ -172,19 +172,19 @@
                 operationLabel.textContent = "Weight";
                 inputLabel.textContent = swap ? "Pounds:" : "Kilograms:";
                 outputLabel.textContent = swap ? "Kilograms:" : "Pounds:";
-                operation = swap ? lbToKg : kgToLb;
+                operation = swap ? lb2Kg : kg2Lb;
             }
             else if (operationMode == OPERATION_MODES.DISTANCE) {
                 operationLabel.textContent = "Distance";
                 inputLabel.textContent = swap ? "Miles:" : "Kilometers:";
                 outputLabel.textContent = swap ? "Kilometers:" : "Miles:";
-                operation = swap ? milesToKm : kmToMiles;
+                operation = swap ? miles2Km : km2Miles;
             }
             else if (operationMode == OPERATION_MODES.TEMPERATURE) {
                 operationLabel.textContent = "Temperature";
                 inputLabel.textContent = swap ? "Celsius:" : "Fahrenheit:";
                 outputLabel.textContent = swap ? "Fahrenheit:" : "Celsius:";
-                operation = swap ? cToF : fToC;
+                operation = swap ? c2F : f2C;
             }
         };
 
