@@ -8,67 +8,94 @@
     
 </head>
 <body class="bg-slate-100">
-    <div class="p-20 flex justify-center items-center bg-slate-600">
-        <h1 class="text-center font-mono font-extrabold text-3xl text-gray-200
-            text-3xl md:text-4xl lg:text-4xl xl:text-5xl">
-            Advanced Javascript and Tailwind CSS
-        </h1>
-    </div>
-
-    <section>
-        <nav class="flex items-center justify-between border border-4 border-slate-900 mt-3 mx-3 rounded-md">
-            <span class="text-sm sm:text-lg font-bold text-slate-900 pl-2">
-                Conversion: 
-            </span>
-            <div class="hidden lg:flex items-center gap-6">
-                <a href="#" id="btn-weight" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Weight</a>
-                <a href="#" id="btn-distance" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Distance</a>
-                <a href="#" id="btn-temperature" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Temperature</a>
-            </div>
-
-            <button id="id-toggle" class="group flex lg:hidden flex-col gap-1.5 p-2 button-tag hover:bg-slate-500 p-2">
-                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
-                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
-                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
-            </button>
-        </nav>
-        
-    </section>
-
-    <section>
-        <div id="id-hamburger" class="flex flex-col lg:hidden hidden">
-            <a href="#" id="btn-weight" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Weight</a>
-            <a href="#" id="btn-distance" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Distance</a>
-            <a href="#" id="btn-temperature" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 rounded-bl-md rounded-br-md border-t-0 hover:bg-slate-500 hover:text-white">Temperature</a>
+    <main>
+        <!-- Header -->
+        <div class="p-20 flex justify-center items-center bg-slate-600">
+            <h1 class="text-center font-mono font-extrabold text-3xl text-gray-200
+                text-3xl md:text-4xl lg:text-4xl xl:text-5xl">
+                Advanced Javascript and Tailwind CSS
+            </h1>
         </div>
-    </section>
 
-    <section>
-        <div class="border border-4 border-slate-900 mt-2 mx-3 rounded-md">
-        <h2 id="operation-id" class="ml-4 mt-2 text-xl font-extrabold pl-2 md:2xl lg:text-3xl xl:text-4xl">Placeholder</h2>
-            <form>
-                <div class="flex flex-col items-center">
-                    <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
-                        <label id="lbl-input" for="id-input" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
-                        <textarea id="id-input" type="text" class="font-semibold rounded-md focus:bg-slate-300 focus:text-slate-900 focus:placeholder-slate-900 w-full border border-4 border-slate-900 flex-3" placeholder="input"></textarea>
-                    </div>
-                    <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
-                        <label id="lbl-output" for="id-output" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
-                        <textarea id="id-output" type="text" class="font-semibold rounded-md focus:bg-slate-300 focus:text-slate-900 focus:placeholder-slate-900 w-full border border-4 border-slate-900 flex-3" placeholder="output"></textarea>
-                    </div>
-                    <div class="flex flex-col sm:flex-row">
-                        <button id="btn-switch" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="button">
-                            Swap                    
-                        </button>
-                        <button id="btn-convert" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="submit">
-                            Convert
-                        </button>
-                    </div>
+        <!-- First Box -->
+        <section>
+            <nav class="flex items-center justify-between border border-4 border-slate-900 mt-3 mx-3 rounded-md">
+                <span class="text-sm sm:text-lg font-bold text-slate-900 pl-2">
+                    Conversion: 
+                </span>
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="#" id="btn-weight" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Weight</a>
+                    <a href="#" id="btn-distance" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Distance</a>
+                    <a href="#" id="btn-temperature" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Temperature</a>
                 </div>
-            </form>
-        </div>
-        
-    </section>
+
+                <button id="id-toggle" class="group flex lg:hidden flex-col gap-1.5 p-2 button-tag hover:bg-slate-500 p-2">
+                    <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
+                    <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
+                    <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
+                </button>
+            </nav>
+            
+        </section>
+
+        <!-- Hidden Menu -->
+        <section>
+            <div id="id-hamburger" class="flex flex-col lg:hidden hidden">
+                <a href="#" id="btn-weight" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Weight</a>
+                <a href="#" id="btn-distance" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Distance</a>
+                <a href="#" id="btn-temperature" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 rounded-bl-md rounded-br-md border-t-0 hover:bg-slate-500 hover:text-white">Temperature</a>
+            </div>
+        </section>
+
+        <!-- Middle Box -->
+        <section>
+            <div class="border border-4 border-slate-900 mt-2 mx-3 rounded-md">
+                <h2 id="operation-id" class="ml-4 mt-2 text-xl font-extrabold pl-2 md:2xl lg:text-3xl xl:text-4xl text-center">Placeholder</h2>
+                <form>
+                    <div class="flex flex-col items-center">
+                        <!-- Input -->
+                        <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
+                            <label id="lbl-input" for="id-input" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
+                            <input id="id-input" type="text" class="font-semibold rounded-md focus:bg-slate-300 focus:text-slate-900 focus:placeholder-slate-900 w-full border border-4 border-slate-900 flex-3" placeholder="input"/>
+                        </div>
+
+                        <!-- Output -->
+                        <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
+                            <label id="lbl-output" for="id-output" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
+                            <input id="id-output" type="text" class="font-semibold rounded-md focus:bg-slate-300 focus:text-slate-900 focus:placeholder-slate-900 w-full border border-4 border-slate-900 flex-3" placeholder="output"/>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-col sm:flex-row">
+                            <button id="btn-switch" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="button">
+                                Swap                    
+                            </button>
+                            <button id="btn-convert" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="submit">
+                                Convert
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Note -->
+        <section>
+            <div class="border border-4 border-slate-900 m-3 rounded-md">
+                <p class="p-2 font-semibold">Note: Use commas to separate the values of multiple inputs</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="sm:mt-12 absolute w-full sm:bottom-0">
+        <section>
+            <div>
+                <p class="p-2 font-semibold text-center">Built using Tailwind CSS and Javascript</p>
+            </div>
+        </section>
+    </footer>
+
 
     <script>
         // =======================================================
