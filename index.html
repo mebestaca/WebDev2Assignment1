@@ -28,7 +28,7 @@
                 <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Temperature</a>
             </div>
 
-            <button class="flex lg:hidden flex-col gap-1.5 p-2">
+            <button id="id-toggle" class="flex lg:hidden flex-col gap-1.5 p-2 button-tag">
                 <span class="block w-5 h-0.5 bg-gray-600"></span>
                 <span class="block w-5 h-0.5 bg-gray-600"></span>
                 <span class="block w-5 h-0.5 bg-gray-600"></span>
@@ -38,7 +38,7 @@
     </section>
 
     <section>
-        <div class="flex flex-col gap-2">
+        <div id="id-hamburger" class="flex flex-col gap-2 lg:hidden hidden">
             <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Weight</a>
             <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Distance</a>
             <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Temperature</a>
@@ -93,6 +93,8 @@
         const OPERATION_ID = "operation-id";
         const INPUT_LABEL_ID = "lbl-input";
         const OUTPUT_LABEL_ID = "lbl-output";
+        const TOGGLE_ID = "id-toggle";
+        const HAMBURGER_ID = "id-hamburger";
 
         // DOM elements
         const operationLabel = document.getElementById(OPERATION_ID);
@@ -100,6 +102,7 @@
         const outputLabel = document.getElementById(OUTPUT_LABEL_ID);
         const inputForConversion = document.getElementById(INPUT_ID);
         const outputConverted = document.getElementById(OUTPUT_ID);
+        const hamburger = document.getElementById(HAMBURGER_ID);
 
         // =======================================================
         // End of constants
@@ -167,6 +170,9 @@
 
                 // operate accepts operation and value array
                 outputConverted.value = operate(operation, inputForConversion.value.split(",").map(v=> Number(v.trim()))).map(o=>o.toFixed(2));
+            }
+            else if (id == TOGGLE_ID) {
+                hamburger.classList.toggle('hidden');
             }
             else {
                 // update operation mode
