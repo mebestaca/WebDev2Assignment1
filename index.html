@@ -7,66 +7,67 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
 </head>
-<body>
-    <div class="border border-2 border-gray-200 bg-gray-200 p-20 flex justify-center items-center 
-        sm:bg-gray-300 md:bg-gray-400 lg:bg-gray-500 xl:bg-gray-600" >
-        <h1 class="text-center font-mono font-extrabold text-2xl text-gray-500
-            sm:text-gray-400 md:text-gray-300 lg:text-gray-200 xl:text-gray-100
-            text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+<body class="bg-slate-100">
+    <div class="p-20 flex justify-center items-center bg-slate-600">
+        <h1 class="text-center font-mono font-extrabold text-3xl text-gray-200
+            text-3xl md:text-4xl lg:text-4xl xl:text-5xl">
             Advanced Javascript and Tailwind CSS
         </h1>
     </div>
 
     <section>
-        <nav class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-            <span class="text-lg font-bold text-gray-900">
+        <nav class="flex items-center justify-between border border-4 border-slate-900 mt-3 mx-3 rounded-md">
+            <span class="text-sm sm:text-lg font-bold text-slate-900 pl-2">
                 Conversion: 
             </span>
             <div class="hidden lg:flex items-center gap-6">
-                <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Weight</a>
-                <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Distance</a>
-                <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Temperature</a>
+                <a href="#" id="btn-weight" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Weight</a>
+                <a href="#" id="btn-distance" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Distance</a>
+                <a href="#" id="btn-temperature" class="text-lg text-slate-600 hover:text-white hover:bg-slate-500 button-tag font-semibold p-2">Temperature</a>
             </div>
 
-            <button id="id-toggle" class="flex lg:hidden flex-col gap-1.5 p-2 button-tag">
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
+            <button id="id-toggle" class="group flex lg:hidden flex-col gap-1.5 p-2 button-tag hover:bg-slate-500 p-2">
+                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
+                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
+                <span class="block w-5 h-0.5 bg-slate-900 group-hover:bg-white"></span>
             </button>
         </nav>
         
     </section>
 
     <section>
-        <div id="id-hamburger" class="flex flex-col gap-2 lg:hidden hidden">
-            <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Weight</a>
-            <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Distance</a>
-            <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag border border-2">Temperature</a>
+        <div id="id-hamburger" class="flex flex-col lg:hidden hidden">
+            <a href="#" id="btn-weight" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Weight</a>
+            <a href="#" id="btn-distance" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 border-t-0 hover:bg-slate-500 hover:text-white">Distance</a>
+            <a href="#" id="btn-temperature" class="text-sm sm:text-lg text-slate-600 font-semibold hover:text-blue-600 button-tag border border-4 border-slate-900 mx-3 p-2 rounded-bl-md rounded-br-md border-t-0 hover:bg-slate-500 hover:text-white">Temperature</a>
         </div>
     </section>
 
     <section>
-        <h2 id="operation-id" class="mx-2 mx-2 text-4xl">Placeholder</h2>
-        <form class="mx-4 my-4">
-            <div class="border border-2 h-full bg-blue-100">
-                <div>
-                    <label id="lbl-input" for="id-input" class="block">Placeholder:</label>
-                    <input id="id-input" type="text" class="block"/>
+        <div class="border border-4 border-slate-900 mt-2 mx-3">
+        <h2 id="operation-id" class="ml-4 mt-2 text-xl font-extrabold pl-2 md:2xl lg:text-3xl xl:text-4xl">Placeholder</h2>
+            <form>
+                <div class="flex flex-col items-center">
+                    <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
+                        <label id="lbl-input" for="id-input" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
+                        <input id="id-input" type="text" class="w-full border border-4 border-slate-900 flex-1" placeholder="input"/>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-between gap-2 m-1">
+                        <label id="lbl-output" for="id-output" class="text-center sm:text-right w-15 sm:w-24 font-semibold flex-1">Placeholder:</label>
+                        <input id="id-output" type="text" class="w-full border border-4 border-slate-900 flex-1" placeholder="output"/>
+                    </div>
+                    <div class="flex flex-col sm:flex-row">
+                        <button id="btn-switch" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="button">
+                            Swap                    
+                        </button>
+                        <button id="btn-convert" class="button-tag bg-slate-500 text-white border border-4 border-slate-900 rounded-lg hover:bg-white hover:text-slate-500 font-bold p-2 m-2" type="submit">
+                            Convert
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <label id="lbl-output" for="id-output" class="block">Placeholder:</label>
-                    <input id="id-output" type="text" class="block"/>
-                </div>
-                <div class="flex">
-                    <button id="btn-switch" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag" type="button">
-                        Swap                    
-                    </button>
-                    <button id="btn-convert" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 button-tag" type="submit">
-                        Convert
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        
     </section>
 
     <script>
@@ -142,20 +143,20 @@
         const switchLabel = operationMode => {
             if (operationMode == OPERATION_MODES.WEIGHT) {
                 operationLabel.textContent = "Weight";
-                inputLabel.textContent = swap ? "Pounds" : "Kilograms";
-                outputLabel.textContent = swap ? "Kilograms" : "Pounds";
+                inputLabel.textContent = swap ? "Pounds:" : "Kilograms:";
+                outputLabel.textContent = swap ? "Kilograms:" : "Pounds:";
                 operation = swap ? lbToKg : kgToLb;
             }
             else if (operationMode == OPERATION_MODES.DISTANCE) {
                 operationLabel.textContent = "Distance";
-                inputLabel.textContent = swap ? "Miles" : "Kilometers";
-                outputLabel.textContent = swap ? "Kilometers" : "Miles";
+                inputLabel.textContent = swap ? "Miles:" : "Kilometers:";
+                outputLabel.textContent = swap ? "Kilometers:" : "Miles:";
                 operation = swap ? milesToKm : kmToMiles;
             }
             else if (operationMode == OPERATION_MODES.TEMPERATURE) {
                 operationLabel.textContent = "Temperature";
-                inputLabel.textContent = swap ? "Celsius" : "Fahrenheit";
-                outputLabel.textContent = swap ? "Fahrenheit" : "Celsius";
+                inputLabel.textContent = swap ? "Celsius:" : "Fahrenheit:";
+                outputLabel.textContent = swap ? "Fahrenheit:" : "Celsius:";
                 operation = swap ? cToF : fToC;
             }
         };
@@ -163,7 +164,7 @@
         // Implementation of the functions
         document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
             // store the id of the button clicked
-            const id = event.target.id;
+            const id = event.currentTarget.id;
 
             if (id == BUTTON_CONVERT_ID) {
                 event.preventDefault();            
