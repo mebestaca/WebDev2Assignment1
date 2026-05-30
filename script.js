@@ -45,3 +45,39 @@ const kmToMile = createConverter("km", "mile");
 
 const cToF = createConverter("c", "f");
 const fToC = createConverter("f", "c");
+
+const converters = {
+    "lb-kg": lbToKg,
+    "kg-lb": kgToLb,
+    "mile-km": mileToKm,
+    "km-mile": kmToMile,
+    "c-f": cToF,
+    "f-c": fToC
+};
+
+function parseInput(value) {
+
+    if (value.includes(",")) {
+        return value
+        .split(",")
+        .map(v => Number(v.trim()));
+    }
+
+    return Number(value);
+}
+
+function handleConversion(from, to, inputId, resultId) {
+
+    const rawInput = document.getElementById(inputId).value;
+
+    const parsedInput = parseInput(rawInput);
+
+    const converter = converters[`${from}-${to}`];
+
+    const result = converter(parsedInput);
+
+    document.getElementById(resultId).innerText = 
+        Array.isArray(result)
+        ? `Result: [${result.join(", ")}]`
+        : `Result: ${result}`;
+}
