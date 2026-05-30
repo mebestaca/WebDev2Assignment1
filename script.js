@@ -81,3 +81,29 @@ function handleConversion(from, to, inputId, resultId) {
         ? `Result: [${result.join(", ")}]`
         : `Result: ${result}`;
 }
+
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        tabButtons.forEach(btn => {
+            btn.classList.remove("bg-[#FFF0C7]");
+        });
+
+        button.classList.add("bg-[#FFF0C7]");
+
+        const selectedTab = button.dataset.tab;
+
+        tabContents.forEach(content => {
+
+            if (content.id === selectedTab) {
+                content.classList.remove("hidden");
+            } else {
+                content.classList.add("hidden");
+            }
+        });
+    });
+});
