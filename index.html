@@ -1,77 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <!-- Justin Branch test -->
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Javascript and Tailwind CSS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <title>Two-Way Metric Imperial Unit Converter</title>
+
 </head>
-<body>
-    <div class="border border-2 border-gray-200 bg-gray-200 p-20 flex justify-center items-center 
-        sm:bg-gray-300 md:bg-gray-400 lg:bg-gray-500 xl:bg-gray-600" >
-        <h1 class="text-center font-mono font-extrabold text-2xl text-gray-500
-            sm:text-gray-400 md:text-gray-300 lg:text-gray-200 xl:text-gray-100
-            text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-            Advanced Javascript and Tailwind CSS
-        </h1>
-    </div>
 
-    <section>
-        <nav class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-            <span class="text-lg font-bold text-gray-900">
-                Conversion: 
-            </span>
-            <div class="hidden lg:flex items-center gap-6">
-                <a href="#" id="btn-weight" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Weight</a>
-                <a href="#" id="btn-distance" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Distance</a>
-                <a href="#" id="btn-temperature" class="text-sm text-gray-600 hover:text-blue-600 button-tag">Temperature</a>
-            </div>
+<body class="bg-[#FFF0C7] min-h-screen">
 
-            <button class="flex lg:hidden flex-col gap-1.5 p-2">
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
-                <span class="block w-5 h-0.5 bg-gray-600"></span>
-            </button>
-        </nav>
-    </section>
+    
+    <nav class="bg-[#FFA552] text-black shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-5 py-4">
+                <button class="tab-btn text-2xl px-4 py-2 rounded hover:bg-[#FFF0C7]" data-tab="weight">
+                    Weight
+                </button>
 
-    <section>
-        <div class="mx-4 my-4">
-            <h2>Weight</h2>
-            <div class="border border-2 h-full bg-blue-100">
-                <div>
-                    <label class="block">Check:</label>
-                    <input class="block"/>
-                </div>
-                <div>
-                    <label class="block">Check:</label>
-                    <input class="block"/>
-                </div>
+                <button class="tab-btn text-2xl px-4 py-2 rounded hover:bg-[#FFF0C7]" data-tab="distance">
+                    Distance
+                </button>
+
+                <button class="tab-btn text-2xl px-4 py-2 rounded hover:bg-[#FFF0C7]" data-tab="temperature">
+                    Temperature
+                </button>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <script>
-        const BUTTON_TAG = "button-tag";
-        const BUTTON_WEIGHT_ID = "btn-weight";
-        const BUTTON_DISTANCE_ID = "btn-distance";
-        const BUTTON_TEMPERATURE_ID = "btn-temperature";
-
-        document.querySelectorAll(`.${BUTTON_TAG}`).forEach(element => element.addEventListener("click", (event)=>{
-            const id = event.target.id;
-
-            if (id == BUTTON_WEIGHT_ID) {
-                console.log(id);
-            }
-            else if (id == BUTTON_DISTANCE_ID) {
-                console.log(id);
-            }
-            else if (id == BUTTON_TEMPERATURE_ID) {
-                console.log(id);
-            }
-        }));    
-    </script>
+    
 </body>
 </html>
