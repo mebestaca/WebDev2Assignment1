@@ -36,3 +36,12 @@ function createConverter(fromUnit, toUnit) {
         return convertValue(input);
     };
 }
+
+const lbToKg = createConverter("lb", "kg");
+const kgToLb = createConverter("kg", "lb");
+
+const mileToKm = createConverter("mile", "km");
+const kmToMile = createConverter("km", "mile");
+
+const cToF = createConverter("c", "f");
+const fToC = createConverter("f", "c");
