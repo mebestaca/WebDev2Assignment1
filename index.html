@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Two-Way Metric Imperial Unit Converter</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body class="bg-[#FFF0C7] min-h-screen">
@@ -28,6 +30,59 @@
         </div>
     </nav>
 
-    
+    <main class="container mx-auto p-6">
+
+        <section id="weight" class="tab-content">
+            <h2 class="text-4xl font-bold mb-6 text-center">
+                Weight Converter
+            </h2>
+
+            <div class="flex flex-col items-center gap-6">
+
+                <div class="bg-[#FDAC68] p-6 rounded-lg shadow w-full max-w-md">
+                    <h3 class="font-semibold mb-4">Pounds(lb.) to Kilograms(kg)</h3>
+
+                    <input
+                        id="lbInput"
+                        type="text"
+                        placeholder="Example: 175"
+                        class="w-full border p-3 rounded mb-4"
+                    >
+
+                    <button
+                        onclick="handleConversion('lb','kg','lbInput','lbResult')"
+                        class="bg-[#B34E00] text-white px-4 py-2 rounded w-full">
+                        Convert
+                    </button>
+
+                    <p id="lbResult" class="mt-4"></p>
+                </div>
+
+                <div class="bg-[#FDAC68] p-6 rounded-lg shadow w-full max-w-md">
+                    <h3 class="font-semibold mb-4">Kilograms(kg) to Pounds(lb.)</h3>
+
+                    <input
+                        id="kgInput"
+                        type="text"
+                        placeholder="Example: 64"
+                        class="w-full border p-3 rounded mb-4"
+                    >
+
+                    <button
+                        onclick="handleConversion('kg','lb','kgInput','kgResult')"
+                        class="bg-[#B34E00] text-white px-4 py-2 rounded w-full">
+                        Convert
+                    </button>
+
+                    <p id="kgResult" class="mt-4"></p>
+                </div>
+
+            </div>
+        </section>
+
+        
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
