@@ -1,3 +1,43 @@
+<!-- 
+Members: Marc Edison Estaca
+         Reiner Justin Realica
+         Joshua Dyck
+Date:   May 30, 2026
+Description:
+# Link to live website
+https://mebestaca.github.io/WebDev2Assignment1/
+
+# Scenario 
+### In this assignment, you’ll build a responsive static website to convert between metric units and imperial units (i.e., between kilograms and pounds, kilometres and miles, and Celsius and Fahrenheit).  
+
+# Equipment and Materials 
+### For this assignment, you will need: 
+ - Visual Studio Code 
+ - Tailwind CSS Play CDN 
+ - Internet browser 
+
+# Instructions 
+### 1. Before you start, review the Scenario and Marking Criteria sections, and then read all the instructions. 
+### 2. Working in groups, as indicated by your instructor, review the mathematical equations required to perform the following unit conversions: 
+ - Pounds (lb.) to kilograms (kg), and vice versa 
+ - Miles to kilometres (km), and vice versa 
+ - Celsius (°C) to Fahrenheit (°F), and vice versa  
+### 3. Create a higher-order JavaScript function that takes in two parameters:  
+ - The unit of measurement to convert from 
+ - The unit of measurement to convert to 
+### The function should return a conversion function that uses arrow notation to perform the conversion. The conversion function should take in a single value or an array of values and return the converted value or array of converted values. 
+### 4. Develop a basic static website that uses the JavaScript conversion functions you created. 
+### Website requirements: 
+ - The website must be made responsive using Tailwind CSS. 
+ - Create three tabs within the navbar of the website: Weight, Distance and Temperature. 
+   - Each tab must have a form to convert from the metric unit to the imperial unit, and vice versa.
+   - The form must contain the functionality to convert a single value and an array list of values. 
+ - Use Tailwind CSS for all the components on the website (e.g., navbar, tabs, forms) 
+### 5. Deploy the website. 
+### 6. Submit the following to Brightspace by the posted due date: 
+ - A link to your GitHub repository 
+ - A link to your deployed website 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -137,31 +177,75 @@
         // =======================================================
 
         // variables for the operation
-        let operationMode = OPERATION_MODES.WEIGHT;
-        let operation = () => {};
-        let swap = true;
+        let operationMode = OPERATION_MODES.WEIGHT; // determines f the operation is about weight, distance, or temperature
+        let operation = () => {};                   // function variable
+        let swap = true;                            // determines the order of conversion. (e.g. lb2Kg if true or kg2Lb if false)
         
         // =======================================================
         // conversion formulas
         // =======================================================
         
+        // =======================================================
         // Pounds to kilograms 
+        // =======================================================
+        //  Converts pounds to kilogram 
+        //  Parameter: Pounds as number
+        //  Returns: Kilogram as number
+        // =======================================================
         const lb2Kg = (lb) => (lb / 2.20462);
+        // =======================================================
+        // Kilograms to pounds
+        // =======================================================
+        //  Converts kilogram to pounds
+        //  Parameter: Kilograms as number
+        //  Returns: pounds as number
+        // =======================================================
         const kg2Lb = (kg) => (kg * 2.20462);
-
+        // =======================================================
         // Miles to kilometers
+        // =======================================================
+        //  Converts Miles to kilometers
+        //  Parameter: Miles as number
+        //  Returns: kilometers as number
+        // =======================================================
         const miles2Km = (m) => (m * 1.60934);
+        // =======================================================
+        // Kilometers to miles
+        // =======================================================
+        //  Converts kilometers to miles
+        //  Parameter: Kilometers as number
+        //  Returns: miles as number
+        // =======================================================
         const km2Miles = (km) => (km * 0.621371);
-
+        // =======================================================
         // Celsius to Fahrenheit
+        // =======================================================
+        //  Converts Celsius to Fahrenheit
+        //  Parameter: Celsius as number
+        //  Returns: Fahrenheit as number
+        // =======================================================
         const c2F = (c) => (c * 9.0 / 5.0) + 32;
+        // =======================================================
+        // Fahrenheit to Celsius
+        // =======================================================
+        //  Converts Fahrenheit to Celsius
+        //  Parameter: Fahrenheit as number
+        //  Returns: Celsius as number
+        // =======================================================
         const f2C = (f) => (f - 32) * 5.0 / 9.0;
 
         // =======================================================
         // Functions
         // =======================================================
 
+        // =======================================================
         // Higher order function
+        // =======================================================
+        //  Maps v and executes the operation
+        //  Parameters: operation as function
+        //              v as an array of numbers
+        //  Returns: an array of operated values
+        // =======================================================
         function operate(operation, v) {
             return v.map(operation);
         }
@@ -169,10 +253,10 @@
         // UI related operations
         const switchLabel = operationMode => {
             if (operationMode == OPERATION_MODES.WEIGHT) {
-                operationLabel.textContent = "Weight";
-                inputLabel.textContent = swap ? "Pounds:" : "Kilograms:";
-                outputLabel.textContent = swap ? "Kilograms:" : "Pounds:";
-                operation = swap ? lb2Kg : kg2Lb;
+                operationLabel.textContent = "Weight";                      // Big H2 Label
+                inputLabel.textContent = swap ? "Pounds:" : "Kilograms:";   // the label for input
+                outputLabel.textContent = swap ? "Kilograms:" : "Pounds:";  // label for output
+                operation = swap ? lb2Kg : kg2Lb;                           // flag for the operation
             }
             else if (operationMode == OPERATION_MODES.DISTANCE) {
                 operationLabel.textContent = "Distance";
@@ -193,6 +277,7 @@
             // store the id of the button clicked
             const id = event.currentTarget.id;
 
+            // if conver button is pressed
             if (id == BUTTON_CONVERT_ID) {
                 event.preventDefault();            
 
