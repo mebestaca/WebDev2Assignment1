@@ -1,3 +1,33 @@
+/*****************************************************************************************************************************
+ * Name: Dyck, Joshua
+ *       Estaca, Marc Edison
+ *       Realica, Reiner Justin
+ * Date: May 30, 2026
+ * 
+ * Program Description:
+ * This program displays a responsive Two-Way Metric Imperial Unit Converter forms. Users can convert between pounds and 
+ * kilograms, miles and kilometres, and Celsius and Fahrenheit. The program accepts either a single numeric value or a 
+ * comma-separated list of numeric values entered through the website forms. A higher-order function creates the appropriate
+ * conversion function based on the selected units, processes the input values, and returns the converted result. The output
+ * is displayed on the webpage for the user in either a single-value format or an array format.
+ * 
+ * Inputs:
+ * - Single numeric value entered by the user
+ * - Comma-separated list of numeric values
+ * - Selected conversion type
+ * 
+ * Processing:
+ * - Parse user input
+ * - Create conversion function using a higher-order function
+ * - Perform the requested unit conversion
+ * - Format and display results
+ * 
+ * Outputs:
+ * Converted value or array of converted values displayed on the webpage
+ * 
+*******************************************************************************************************************************/
+
+// creates and returns a conversion function based on the source and target measurement units.
 function createConverter(fromUnit, toUnit) {
 
     return (input) => {
@@ -37,6 +67,7 @@ function createConverter(fromUnit, toUnit) {
     };
 }
 
+//creates reusable converter functions for all supported measurement types.
 const lbToKg = createConverter("lb", "kg");
 const kgToLb = createConverter("kg", "lb");
 
@@ -46,6 +77,7 @@ const kmToMile = createConverter("km", "mile");
 const cToF = createConverter("c", "f");
 const fToC = createConverter("f", "c");
 
+//stores all conversion functions so they can be accessed effectively based on user selections.
 const converters = {
     "lb-kg": lbToKg,
     "kg-lb": kgToLb,
@@ -55,6 +87,8 @@ const converters = {
     "f-c": fToC
 };
 
+//determines whether the user entered a single value or a comma-separated list and converts the
+//input into the appropriate data type.
 function parseInput(value) {
 
     if (value.includes(",")) {
@@ -66,6 +100,7 @@ function parseInput(value) {
     return Number(value);
 }
 
+//retrieves user input, performs the requested conversion, and displays the results on the page.
 function handleConversion(from, to, inputId, resultId) {
 
     const rawInput = document.getElementById(inputId).value;
@@ -82,6 +117,7 @@ function handleConversion(from, to, inputId, resultId) {
         : `Result: ${result}`;
 }
 
+//controls which conversion section is displayed when a user clicks a tab in the navigation bar.
 const tabButtons = document.querySelectorAll(".tab-btn");
 const tabContents = document.querySelectorAll(".tab-content");
 
